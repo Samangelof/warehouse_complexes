@@ -13,9 +13,11 @@ warehouse_manager = WarehouseManager('db.db')
     # - 1 аргумент = название склада
     # - 2 арг. имя склада
 warehouse_moscow = Warehouse('Склад 1', 'Москва')
+warehouse_kazan = Warehouse('Склад 2', 'Казань')
 
 # Добавляем склад в склады 
 warehouse_manager.add_warehouse(warehouse_moscow)
+warehouse_manager.add_warehouse(warehouse_kazan)
 
 #todo [Показывает] все склады 
 print(warehouse_manager.list_warehouses())
@@ -39,12 +41,18 @@ print(warehouse_manager.find_warehouse('Склад 1', 'Москва'))
     # - 4 арг. цена
     # - 5 арг. id склада (положит товар в указаный id склада)
 product1 = Product(None, "Монитор", 10, 50.0, 1)
+product2 = Product(None, "Корзина для фруктов", 10, 2.0, 2)
+
 
 #* [Добавляет] продукт в склад
 warehouse_moscow.add_product(product1)
+warehouse_kazan.add_product(product2)
+
 
 #todo [Показывает] все продукты в указаном складе
-print(warehouse_moscow.list_products())
+print('[MOSCOW]', warehouse_moscow.list_products())
+print('[KAZAN]', warehouse_kazan.list_products())
+
 
 #? [Обновляет] информацию о продукте в складе
 # Создание экземпляра продукта с обновленными данными
@@ -59,4 +67,4 @@ print(warehouse_moscow.list_products())
 
 #! [Удаляет] Склад и все товары которые находились на складе
     # - 1 аргумент = id склада
-warehouse_manager.remove_warehouse(1)
+# warehouse_manager.remove_warehouse(1)
